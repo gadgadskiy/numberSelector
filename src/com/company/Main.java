@@ -2,6 +2,7 @@ package com.company;
 
 public class Main {
     private final Calculator calculator = new Calculator();
+    private final SignFiller signFiller = new SignFiller();
 
     public static void main(String[] args) {
 	    Main main = new Main();
@@ -19,5 +20,7 @@ public class Main {
         System.out.println(main.calculator.calculate(s5));
         System.out.println(main.calculator.calculate(s6));
         System.out.println(main.calculator.calculate(s7));
+
+        main.signFiller.fillWithSimpleSigns("423009");
     }
 }

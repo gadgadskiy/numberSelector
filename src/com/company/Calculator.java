@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.util.Util;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,8 +9,7 @@ import java.util.List;
 public class Calculator {
 	public double calculate(String input) {
 		List<String> numberStrings = Arrays.asList(input.split("[+\\-*\\/]"));
-		List<Double> numbers = new ArrayList<>();
-		numberStrings.forEach(s -> numbers.add(Double.parseDouble(s)));
+		List<Double> numbers = Util.listStringToDouble(numberStrings);
 		ArrayList<String> signs = new ArrayList<>(Arrays.asList(input.split("\\d+")));
 		signs.remove(0);
 		int length = signs.size();
