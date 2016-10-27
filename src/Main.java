@@ -1,5 +1,3 @@
-package com.company;
-
 public class Main {
     private final Calculator calculator = new Calculator();
     private final SignFiller signFiller = new SignFiller();
