@@ -19,6 +19,9 @@ public class Main {
         System.out.println(main.calculator.calculate(s6));
         System.out.println(main.calculator.calculate(s7));
 
+        main.signFiller.fillWithSimpleSigns("87");
+        main.signFiller.fillWithSimpleSigns("636");
+        main.signFiller.fillWithSimpleSigns("1114");
         main.signFiller.fillWithSimpleSigns("423009");
     }
 }
