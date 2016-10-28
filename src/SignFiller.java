@@ -2,15 +2,31 @@ import util.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SignFiller {
-	public List<String> fillWithSimpleSigns(String input) {
-		List<String> numberStrings = Arrays.asList(input.split("(?!^)"));
-		List<Double> numbers = Util.listStringToDouble(numberStrings);
-		List<String> sings = Arrays.asList("", "+", "-", "*", "/");
-		List<String> result = new ArrayList<>();
+	private List<String> sings = Arrays.asList("_", "+", "-", "*", "/");
 
+	public List<String> fillWithSimpleSigns(String input) {
+		List<String> numbers = Arrays.asList(input.split("(?!^)"));
+		ArrayList<String> result = new ArrayList<>(Collections.singletonList(numbers.get(0)));
+
+		for (int i = 0; i < numbers.size() - 1; i++) {
+			result = appendSign(result);
+		}
 		return result;
+	}
+
+	private ArrayList<String> appendSign(ArrayList<String> list) {
+		int size = sings.size();
+		List<String> source = new ArrayList<>(list);
+		list = new ArrayList<>();
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < source.size(); j++) {
+				list.add(source.get(j) + sings.get(i));
+			}
+		}
+		return list;
 	}
 }
