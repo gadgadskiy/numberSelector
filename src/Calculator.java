@@ -9,7 +9,9 @@ public class Calculator {
 		List<String> numberStrings = Arrays.asList(input.split("[+\\-*\\/]"));
 		List<Double> numbers = Util.listStringToDouble(numberStrings);
 		ArrayList<String> signs = new ArrayList<>(Arrays.asList(input.split("\\d+")));
-		signs.remove(0);
+		if (!signs.isEmpty()) {
+			signs.remove(0);
+		}
 		int length = signs.size();
 		for (int i = 0; i < length; i++) {
 			if ("*/".contains(signs.get(i))) {

@@ -1,27 +1,41 @@
+import java.util.List;
+
 public class Main {
     private final Calculator calculator = new Calculator();
     private final SignFiller signFiller = new SignFiller();
 
     public static void main(String[] args) {
 	    Main main = new Main();
-        String s1 = "11+2*3"; //17
-        String s2 = "11+2/3"; //11.666
-        String s3 = "11+2/3/4"; //11.166
-        String s4 = "11+2/3*3"; //13
-        String s5 = "1-4/3+2/5"; //0.066
-        String s6 = "1/3-2*8+1/3"; //-15.333
-        String s7 = "1/3-2*8-1/3"; //-16
-        System.out.println(main.calculator.calculate(s1));
-        System.out.println(main.calculator.calculate(s2));
-        System.out.println(main.calculator.calculate(s3));
-        System.out.println(main.calculator.calculate(s4));
-        System.out.println(main.calculator.calculate(s5));
-        System.out.println(main.calculator.calculate(s6));
-        System.out.println(main.calculator.calculate(s7));
+        main.doSelection("7", 7);
+        main.doSelection("7", 5);
+        main.doSelection("12", 3);
+        main.doSelection("12", 4);
+        main.doSelection("123", 5);
+        main.doSelection("1199", 10);
+        main.doSelection("9999", 10);
+        main.doSelection("230123", 100);
+        main.doSelection("93463465", 100);
+        main.doSelection("325235891", 100);
+        main.doSelection("345676235", 100);
+        main.doSelection("3456762351", 100);
+        main.doSelection("29385723045", 100);
+        main.doSelection("4520004", 100); //TODO: optimize solutions 4*5*20/004, 4+5*20+00-4 etc
+        System.out.println("---------------------------------");
+    }
 
-        main.signFiller.fillWithSimpleSigns("87");
-        main.signFiller.fillWithSimpleSigns("636");
-        main.signFiller.fillWithSimpleSigns("1114");
-        main.signFiller.fillWithSimpleSigns("423009");
+    private void doSelection(String inputString, long expectedResult) {
+        System.out.println("---------------------------------");
+        System.out.println("try find solutions for: " + inputString + " => " + expectedResult);
+        List<String> variants = signFiller.fillWithSimpleSigns(inputString);
+        int[] successNumber = {1};
+        variants.forEach(variant -> {
+            if (calculator.calculate(variant) == expectedResult) {
+                System.out.println(successNumber[0] + ") " + variant + " = " + expectedResult);
+                successNumber[0]++;
+            }
+        });
+        if (successNumber[0] == 1) {
+            System.out.println("sorry, we didn't find solutions");
+        }
     }
 }
