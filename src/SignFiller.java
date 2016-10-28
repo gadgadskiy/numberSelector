@@ -1,5 +1,3 @@
-import util.Util;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,7 +8,7 @@ public class SignFiller {
 
 	public List<String> fillWithSimpleSigns(String input) {
 		List<String> numbers = Arrays.asList(input.split("(?!^)"));
-		ArrayList<String> result = new ArrayList<>(Collections.singletonList(numbers.get(0)));
+		List<String> result = new ArrayList<>(Collections.singletonList(numbers.get(0)));
 
 		for (int i = 0; i < numbers.size() - 1; i++) {
 			result = appendSign(result);
@@ -18,7 +16,7 @@ public class SignFiller {
 		return result;
 	}
 
-	private ArrayList<String> appendSign(ArrayList<String> list) {
+	private List<String> appendSign(List<String> list) {
 		int size = sings.size();
 		List<String> source = new ArrayList<>(list);
 		list = new ArrayList<>();
