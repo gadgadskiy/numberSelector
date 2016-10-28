@@ -10,7 +10,7 @@ import java.util.List;
  * fix -1*-2*-3
  */
 public class Main {
-    private final Calculator calculator = new Calculator();
+    private final Parser parser = new Parser();
     private final SignFiller signFiller = new SignFiller();
 
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class Main {
         List<String> variants = signFiller.fillWithSimpleSigns(inputString);
         int[] successNumber = {0};
         variants.forEach(variant -> {
-            if (calculator.calculate(variant) == expectedResult) {
+            if (parser.calculate(variant) == expectedResult) {
                 System.out.println(++successNumber[0] + ") " + variant + " = " + expectedResult);
             }
         });

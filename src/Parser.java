@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Calculator {
+public class Parser {
 	public double calculate(String input) {
 		List<String> numberStrings = Arrays.asList(input.split("[+\\-*\\/]"));
 		List<Double> numbers = Util.listStringToDouble(numberStrings);
