@@ -3,7 +3,6 @@ import java.util.List;
 /**
  * TODO list:
  * user API for input (input max 11 symbols, result - ?)
- * optimize solutions 4520004 => 4*5*20/004, 4+5*20+00-4 etc
  * processing ()
  * unit tests
  * fix -1*2*3
@@ -27,7 +26,7 @@ public class Main {
         main.doSelection("325235891", 100);
         main.doSelection("345676235", 100);
         main.doSelection("3456762351", 100);
-        main.doSelection("29385723045", 100);
+        main.doSelection("29385720045", 100);
         main.doSelection("4520004", 100);
         System.out.println("---------------------------------");
     }

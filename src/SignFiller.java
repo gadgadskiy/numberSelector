@@ -21,7 +21,10 @@ public class SignFiller {
 		list = new ArrayList<>();
 		for (String sourceElement : source) {
 			for (String sign : signs) {
-				list.add(sourceElement + sign + numbers.get(index));
+				String expression = sourceElement + sign + numbers.get(index);
+				if (!expression.matches(".*0\\d.*")) {
+					list.add(expression);
+				}
 			}
 		}
 		return list;
